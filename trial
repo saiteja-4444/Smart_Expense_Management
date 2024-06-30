@@ -1,0 +1,40 @@
+function render() {
+    var transactions = JSON.parse(localStorage.getItem("transactions"));
+    var table = document.getElementById("911");
+
+    transactions.forEach(function(transaction) {
+        var createtr = document.createElement("tr");
+
+        var createtd = document.createElement("td");
+        var createtd2 = document.createElement("td"); // Fixed variable name
+        var createtd3 = document.createElement("td");
+        var createtd4 = document.createElement("td");
+
+        var createp = document.createElement("p");
+        var createp2 = document.createElement("p");
+        var createp3 = document.createElement("p");
+        var createp4 = document.createElement("p");
+
+        createtd.appendChild(createp);
+        createtd2.appendChild(createp2);
+        createtd3.appendChild(createp3);
+        createtd4.appendChild(createp4);
+
+        createp.innerHTML = transaction.name;
+        createp2.innerHTML = transaction.date;
+        createp3.innerHTML = transaction.amount;
+        createp4.innerHTML = transaction.type;
+
+        createtd.appendChild(createp);
+        createtd2.appendChild(createp2);
+        createtd3.appendChild(createp3);
+        createtd4.appendChild(createp4);
+
+        createtr.appendChild(createtd);
+        createtr.appendChild(createtd2);
+        createtr.appendChild(createtd3);
+        createtr.appendChild(createtd4);
+
+        table.appendChild(createtr);
+    });
+}

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Expense tracker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.card {
+			border: none;
+			border-radius: 10px
+		}
+
+		.c-details span {
+			font-weight: 300;
+			font-size: 13px
+		}
+
+		.icon {
+			width: 50px;
+			height: 50px;
+			background-color: #eee;
+			border-radius: 15px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 39px
+		}
+
+		.badge span {
+			background-color: #fffbec;
+			max-width: 60px;
+			height: 25px;
+			padding-bottom: 3px;
+			border-radius: 5px;
+			display: flex;
+			justify-content: center;
+			align-items: center
+		}
+	</style>
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+	<div class="wrapper d-flex align-items-stretch">
+		<nav id="sidebar" class="active">
+			<h1>
+				<a href="index.html" class="logo">
+					<img src="images/logo.png" alt="Logo" class="img-fluid">
+				</a>
+			</h1>
+			<ul class="list-unstyled components mb-5">
+				<li class="active">
+					<a href="index.html"><span class="fa fa-home"></span> Dashboard</a>
+				</li>
+				<li>
+					<a href="transaction.html"><span class="fa fa-exchange"></span> Add transactions</a>
+				</li>
+				<li>
+					<a href="history.html"><span class="fa fa-sticky-note"></span> Transaction history</a>
+				</li>
+			</ul>
+			<div class="footer"><p>
+			
+						</p>
+
+				
+			</div>
+		</nav>
+		<!-- Page Content  -->
+		<div id="content" class="p-4 p-md-5">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+						<i class="fa fa-bars"></i>
+						<span class="sr-only">Toggle Menu</span>
+					</button>
+					<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<i class="fa fa-bars"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="nav navbar-nav ml-auto">
+							<li class="nav-item active">
+								<a class="nav-link" href="#" id="greeting">
+									Hi, User
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="container mt-5">
+				<div class="row">
+					<div class="col-md-4 col-sm-12">
+						<div class="card p-3 mb-2">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex flex-row align-items-center text-success">
+									<div class="icon"> <i class="fa fa-rupee"></i> </div>
+									<div class="ms-2 c-details ml-1">
+										<h6 class="mb-0">Income</h6>
+										<div class="badge"></div>
+									</div>
+								</div>
+							</div>
+							<div class="mt-5">
+								<h3 class="heading">
+									<span id="income"></span>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<div class="card p-3 mb-2">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex flex-row align-items-center text-danger">
+									<div class="icon"> <i class="fa fa-rupee"></i> </div>
+									<div class="ms-2 c-details ml-1">
+										<h6 class="mb-0">Expenses</h6>
+										<div class="badge"></div>
+									</div>
+								</div>
+							</div>
+							<div class="mt-5">
+								<h3 class="heading">
+									<span id="expense"></span>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<div class="card p-3 mb-2">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex flex-row align-items-center text-warning">
+									<div class="icon"> <i class="fa fa-rupee"></i> </div>
+									<div class="ms-2 c-details ml-1">
+										<h6 class="mb-0">Balance</h6>
+										<div class="badge"></div>
+									</div>
+								</div>
+							</div>
+							<div class="mt-5">
+								<h3 class="heading">
+									<span id="balance"></span>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div id="curve_chart" class="w-100"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.all.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
+		// check if user has visited the site before
+		// if first time, ask user for their name and store in local storage
+		if (localStorage.getItem("name") == null) {
+			Swal.fire({
+				title: 'Welcome!',
+				text: 'Please enter your name',
+				input: 'text',
+				inputAttributes: {
+					autocapitalize: 'off'
+				},
+				showCancelButton: false,
+				confirmButtonText: 'Submit',
+				showLoaderOnConfirm: true,
+				preConfirm: (name) => {
+					localStorage.setItem("name", name);
+					document.getElementById("greeting").innerHTML = "Hello " + name;
+				},
+				allowOutsideClick: () => !Swal.isLoading()
+			})
+			console.log(localStorage.getItem("name") + " is null");
+		} else {
+			console.log(localStorage.getItem("name") + " is not null");
+			document.getElementById("greeting").innerHTML = " <i class='fa fa-user'></i> Hello " + localStorage.getItem("name");
+		}
+	</script>
+	<script>
+		var incomeElement = document.getElementById("income");
+		var expenseElement = document.getElementById("expense");
+		var balanceElement = document.getElementById("balance");
+		var currentMonthStats = JSON.parse(localStorage.getItem(new Date().toLocaleDateString('default', { month: 'long' })));
+		if (currentMonthStats == null) {
+			currentMonthStats = {
+				income: 0,
+				expense: 0,
+				balance: 0
+			}
+		}
+
+		if (isNaN(currentMonthStats.expense)) {
+			currentMonthStats.expense = 0;
+		}
+		var income = currentMonthStats.income;
+		var expense = currentMonthStats.expense;
+
+		incomeElement.innerHTML = incomeElement.innerHTML + income;
+		expenseElement.innerHTML = expenseElement.innerHTML + expense;
+		balanceElement.innerHTML = incomeElement.innerHTML - expenseElement.innerHTML;
+		// Add innerHTML to the income and expense elements which have 'badge' class
+		const elements = document.getElementsByClassName("badge");
+		for (let i = 0; i < elements.length; i++) {
+			elements[i].innerHTML = "<span> " + new Date().toLocaleString('default', { month: 'long' }) + "</span>";
+		}
+	</script>
+	<script type="text/javascript">
+		// check if data for previous months exists in local storage
+		// if not, create data for previous months
+		if (localStorage.getItem("January") == null) {
+			setDataForPreviousMonths();
+		}
+		google.charts.load('current', { 'packages': ['corechart'] });
+		google.charts.setOnLoadCallback(drawChart);
+		function drawChart() {
+			// Retrieve the monthly data from local storage
+			const months = getPreviousMonthNames(new Date().getMonth());
+			const monthlyData = {};
+			months.forEach(month => {
+				const existingData = JSON.parse(localStorage.getItem(month));
+				monthlyData[month] = existingData;
+			});
+	
+			// Prepare the chart data array for pie chart
+			const chartData = [['Category', 'Amount']];
+			months.forEach(month => {
+				const expense = monthlyData[month].expense;
+				const income = monthlyData[month].income;
+				chartData.push(['Expense - ' + month, expense]);
+				chartData.push(['Income - ' + month, income]);
+			});
+	
+			var data = google.visualization.arrayToDataTable(chartData);
+			var options = {
+				title: 'Previous Months Expenses and Income',
+				pieSliceText: 'label',
+				slices: {
+					0: { color: 'red' },  // Expense color
+					1: { color: 'green' } // Income color
+				},
+				legend: { position: 'bottom' }
+			};
+			var chart = new google.visualization.PieChart(document.getElementById('curve_chart'));
+			chart.draw(data, options);
+		}
+	</script>
+	
+</body>
+
+</html>
