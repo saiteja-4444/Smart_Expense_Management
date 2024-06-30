@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <!-- Link to external CSS file -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="font-sans font-bold text-white text-3xl">Expense Tracker</h1>
+      <div class="filter-container">
+        <select id="category" name="category" required class="w-full px-3 py-2 border rounded-md" [(ngModel)]="formData.category" #categoryInput="ngModel">
+          <ng-container>
+          <option [ngValue]="null" disabled>Select Category</option></ng-container>
+          <option *ngFor="let category of categories" [ngValue]="category">{{ category.categoryName }}</option>
+        </select>
+        <!-- <input type="date" [(ngModel)]="startDate" (change)="filterExpenses()">
+<input type="date" [(ngModel)]="endDate" (change)="filterExpenses()"> -->
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>S.No.</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Date of Expense</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let expense of expenses; let i = index">
+            <td class="font-bold text-white" data-label="Date of Expense">{{ i + 1 }}</td>
+            <td class="font-bold text-white" data-label="Date of Expense">{{ expense.description }}</td>
+            <td class="font-bold text-white" data-label="Date of Expense">{{ expense.category.categoryName }}</td>
+            <td class="font-bold text-white" data-label="Date of Expense">{{ expense.amount }}</td>
+            <td class="font-bold text-white" data-label="Date of Expense">{{ expense.date }}</td>
+            <td id="edit"class="edit transition bg-blue-500 text-white py-3 px-6 rounded"data-label="Edit"><button *ngIf="expense.expenseId !== undefined"(click)="editExpense(expense.expenseId)">Edit</button></td>
+            <td id="delete"class="delete transition bg-red-500 text-white py-3 px-6 rounded"data-label="Delete"><button *ngIf="expense.expenseId !== undefined" (click)="deleteExpense(expense.expenseId)">Delete </button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination-controls">
+        Items per page:
+        <!-- <select [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage(itemsPerPage)">
+    <option *ngFor="let size of pageSizeOptions" [value]="size">{{ size }}</option>
+  </select>
+  <mat-paginator [pageSizeOptions]="pageSizeOptions" [pageSize]="itemsPerPage" (page)="changePage($event)" showFirstLastButtons></mat-paginator> -->
+      </div>
+    </div>
+  </body>
+</html>

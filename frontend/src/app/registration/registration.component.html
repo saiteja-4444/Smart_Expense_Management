@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./registration.component.css" />
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="overlap-group-wrapper">
+        <div class="overlap-group">
+          <div class="rectangle"></div>
+
+          <div class="text-wrapper">Register</div>
+          <form [formGroup]="registrationForm" (ngSubmit)="formSubmit()">
+            <div class="div">First Name</div>
+            <input
+              type="text"
+              id="first-name"
+              formControlName="firstName"
+              placeholder="Enter your first name"
+              required
+              [(ngModel)]="user.firstName"
+              [ngClass]="{
+                invalid:
+                  registrationForm.get('firstName')?.invalid &&
+                  (registrationForm.get('firstName')?.dirty ||
+                    registrationForm.get('firstName')?.touched)
+              }"
+              (blur)="markTouched('firstName')"
+              (ngModelChange)="updateFormControl('firstName', $event)"
+            />
+            <div
+              *ngIf="
+                registrationForm.get('firstName')?.invalid &&
+                (registrationForm.get('firstName')?.dirty ||
+                  registrationForm.get('firstName')?.touched)
+              "
+            >
+              <div class="error-message first-name">
+                {{ registrationForm.get('firstName')?.errors?.['required'] ? 'First Name is Required !!' : registrationForm.get('firstName')?.errors }}
+              </div>
+            </div>
+            <div class="text-wrapper-2">Last Name</div>
+            <input
+              type="text"
+              id="last-name"
+              formControlName="lastName"
+              placeholder="Enter your last name"
+              required
+              [(ngModel)]="user.lastName"
+              [ngClass]="{
+                invalid:
+                  registrationForm.get('lastName')?.invalid &&
+                  (registrationForm.get('lastName')?.dirty ||
+                    registrationForm.get('lastName')?.touched)
+              }"
+              (blur)="markTouched('lastName')"
+              (ngModelChange)="updateFormControl('lastName', $event)"
+            />
+            <div
+              *ngIf="
+                registrationForm.get('lastName')?.invalid &&
+                (registrationForm.get('lastName')?.dirty ||
+                  registrationForm.get('lastName')?.touched)
+              "
+            >
+              <div class="error-message last-name">
+                {{ registrationForm.get('lastName')?.errors?.['required'] ? 'Last Name is Required !!' : registrationForm.get('lastName')?.errors }}
+              </div>
+            </div>
+            <div class="text-wrapper-3">Email</div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              formControlName="email"
+              placeholder="Enter your email"
+              [(ngModel)]="user.email"
+              [ngClass]="{
+                invalid:
+                  registrationForm.get('email')?.invalid &&
+                  (registrationForm.get('email')?.dirty ||
+                    registrationForm.get('email')?.touched)
+              }"
+              required
+              (blur)="markTouched('email')"
+              (ngModelChange)="updateFormControl('email', $event)"
+            />
+            <div
+              *ngIf="
+                registrationForm.get('email')?.invalid &&
+                (registrationForm.get('email')?.dirty ||
+                  registrationForm.get('email')?.touched)
+              "
+            >
+              <div class="error-message email">
+                {{ registrationForm.get('email')?.errors?.['required'] ? 'E-mail is Required !!' : registrationForm.get('email')?.errors?.['email']  ? 'Please enter a valid E-mail !!' : '' }}
+              </div>
+            </div>
+            <div class="text-wrapper-4">Password</div>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              formControlName="password"
+              placeholder="Enter your password"
+              [(ngModel)]="user.password"
+              [ngClass]="{
+                invalid:
+                  registrationForm.get('password')?.invalid &&
+                  (registrationForm.get('password')?.dirty ||
+                    registrationForm.get('password')?.touched)
+              }"
+              required
+              (blur)="markTouched('password')"
+              (ngModelChange)="updateFormControl('password', $event)"
+            />
+            <div
+              *ngIf="
+                registrationForm.get('password')?.invalid &&
+                (registrationForm.get('password')?.dirty ||
+                  registrationForm.get('password')?.touched)
+              "
+            >
+              <div class="error-message password">
+                {{ registrationForm.get('password')?.errors?.['required'] ? 'Password is Required !!' : (registrationForm.get('password')?.errors?.['minlength'] ? 'Password must be at least 6 characters long !!' : registrationForm.get('password')?.errors) }}
+              </div>
+            </div>
+            <div class="text-wrapper-5">Confirm Password</div>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              formControlName="confirmPassword"
+              placeholder="Confirm your password!!"
+              [ngClass]="{
+                invalid:
+                  registrationForm.get('confirmPassword')?.invalid &&
+                  (registrationForm.get('confirmPassword')?.dirty ||
+                    registrationForm.get('confirmPassword')?.touched)
+              }"
+              required
+              (blur)="markTouched('confirmPassword')"
+              (ngModelChange)="updateFormControl('confirmPassword', $event)"
+            />
+            <div
+              *ngIf="
+                registrationForm.get('confirmPassword')?.invalid &&
+                (registrationForm.get('confirmPassword')?.dirty ||
+                  registrationForm.get('confirmPassword')?.touched)
+              "
+            >
+              <div class="error-message confirm-password">
+                {{ registrationForm.get('confirmPassword')?.errors?.['required'] ? 'Confirm Password is Required !!' : registrationForm.get('confirmPassword')?.errors?.['passwordMatch'] ? 'Password does not match. Please enter a matching password !!' : '' }}
+              </div>
+            </div>
+            <div class="rectangle-2"></div>
+            <button class="text-wrapper-6">Sign Up</button>
+          </form>
+          <div class="text-wrapper-7">Already have an account?</div>
+          <a class="text-wrapper-8" href="Login">Login HERE</a>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

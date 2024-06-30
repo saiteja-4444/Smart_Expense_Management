@@ -1,0 +1,26 @@
+
+  
+
+
+<div class="container">
+  <h2>Welcome to The SpendWise Dashboard</h2>
+
+  <div class="bt">
+    <button (click)="addNewExpense()" class="btn btn-outline-primary" style="margin-right: 14px;">Add New
+      Expense</button>
+    <button (click)="viewAllExpenses()" class="btn btn-secondary" style="margin-right: 14px;">View All Expenses</button>
+    
+  </div>
+  <h3>Last 30 Days Expense Graph</h3>
+  <div class="bar-graph-container">
+    <canvas id="barChart">{{ barChart }}</canvas> <!-- Display the bar chart -->
+  </div>
+  <h3>Last 30 Days Expense Breakdown</h3>
+  <div class="pie-graph-container">
+  
+    <canvas id="pieChart">{{ pieChart }}</canvas> <!-- Display the pie chart -->
+  </div>
+  
+
+
+</div>

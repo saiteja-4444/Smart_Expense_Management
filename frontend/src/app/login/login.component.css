@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+  /*8background-color: #48CAE4;*/
+  /*background-color: #344955;*/
+}
+
+.container{
+  width: 33%;
+  margin: 100px  auto;
+  padding: 20px 10px;
+  background-color: #F8F9FA;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.4);
+}
+h1{
+  font-size: 40px;
+  margin-bottom: 30px;
+  padding: 1px solid #fff;
+}
+p{
+  margin-bottom: 10px;
+}
+form input{
+  width: 80%;
+  outline: none;
+  border: 1px solid #fff;
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  border-radius: 16px;
+  background-color: #e4e4e4;
+}
+
+input:focus{
+  border: 1px solid black;
+}
+
+.forgetpass{
+  text-decoration: underline;
+  text-align: right;
+  font-size: 16px;
+  margin : 7px 50px 7px 0px ;
+  color:#00a3ff;
+}
+
+
+button{
+  font-size: 30px;
+  margin-top: 15px;
+  padding: 10px 0px;
+  border-radius: 16px;
+  border: none;
+  width : 80%;
+  background-color: #48CAE4;
+}
+
+button:hover{
+  color:#fff;
+  background-color: green;
+}
+
+
+.signup{
+ 
+  font-size: 16px;
+  margin-top: 20px;
+  color: black;
+}
+
+.em{
+  text-align: left;
+  padding-left: 55px;
+}
+
+.pass{
+  text-align: left;
+  padding-left: 55px;
+  
+}
+
+.sp{
+  text-decoration: underline;
+  color:#00a3ff;
+}

@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+.div-2 {
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.4);
+    background-color:#F8F9FA;
+    display: flex;
+    width: 33%;
+    flex-direction: column;
+    margin: 100px  auto;
+    margin-top: 100px;
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+
+.div-3 {
+    font-size:40px;
+}
+
+.div-4 {
+    color: #6c6666;
+}
+
+.div-5 {
+    font-weight: lighter;
+    margin-left: 5px;
+    margin-top: 25px;
+}
+
+
+.password-container {
+    position: relative;
+    border-radius: 15px;
+}
+
+.show-password {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    font-family: monospace;
+    letter-spacing: 0.125em;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #48CAE4;
+    font-size: 30px;
+    color: #000;
+    padding: 10px 50px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width : 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.submit-btn:hover {
+    background-color: green;
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    margin-right:18px;
+  }
+  
+input[type="email"],
+input[type="password"] {
+    font-size: 16px;
+    border-radius: 16px;
+    background-color: #e4e4e4;
+    width: 105%;
+    outline: none;
+    padding: 12px 20px;
+}

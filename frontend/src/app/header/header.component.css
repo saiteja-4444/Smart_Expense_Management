@@ -1,0 +1,152 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #015173;
+    color: #fff;
+    padding: 8px 30px;
+    z-index: 1000;
+    position:relative;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .navbar-left {
+    flex: 1;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size:30px;
+    margin-left: 10px;
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    padding: 0;
+    margin-right: 20px;
+    font-size: larger;
+  }
+  
+  .navbar-menu li {
+    display: inline;
+  }
+  
+  .navbar-menu li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .user-info {
+    margin-right: 12px;
+  }
+  
+  /* Adjustments for small screens */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .navbar-right {
+      margin-top: 10px;
+    }
+  
+    .navbar-menu {
+      margin-right: 0;
+    }
+  
+    .navbar-menu li {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .bt {
+    display: flex;
+    margin-left: 10px;
+   align-self: center;
+  }
+  
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; 
+    width: 12%;
+    height: 100%;
+    border-color: #fff;
+    transition: all 0.3s ease;
+    background-color:  #015173;
+  }
+  
+  .sidebar.active {
+    right: 0; /* Show sidebar when active */
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 34%;
+    
+  }
+  
+  .sidebar-menu li {
+    margin-top: 5px;
+    
+  }
+  hr{
+    margin-left: 7px;
+    margin-right: 7px;
+    color: #736f6f;
+    opacity:  0.3;
+  }
+  
+  .sidebar-menu li  {
+    display: block;
+    padding: 4px;
+    padding-left: 8%;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .sidebar-menu li a {
+    display: block;
+    padding: 4px;
+    padding-left: 2%;
+    text-decoration:underline;
+    color: #fff;
+  }
+  
+  /* Adjustments for small screens */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px;
+    }
+  }
+  .pr{
+    margin-right: 14px;
+    margin-top: 4px;
+  }
+  .btn {
+    align-self: center; 
+    display: inline-block;
+    padding: 2.1px 14px;
+    font-size: 18px;
+    width: fit-content;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #027681;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }

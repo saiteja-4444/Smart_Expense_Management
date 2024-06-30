@@ -1,0 +1,31 @@
+<div class="navbar">
+    <div class="navbar-left">
+        <a href="#" class="navbar-brand">SpendWise</a>
+    </div>
+    
+    <ng-container *ngIf="renderAdditionalContent">
+        <div class="navbar-right">
+            <div class="user-info">
+                <span>Welcome, {{ firstName }}</span>
+            </div>
+        </div>
+        <div class="user-info">
+            <button class="btn btn-primary pr" (click)="toggleSidebar()">Profile</button>
+        </div>
+    </ng-container>
+</div>
+<!-- <div class="sidebar" [ngClass]="{ 'active': isSidebarOpen }"> -->
+    <div class="sidebar" [ngClass]="{ 'active': isSidebarOpen && renderAdditionalContent }">
+    <ul class="sidebar-menu">
+        <hr>
+        <br>
+        <li> First Name: {{ firstName }}</li>
+        <li>Last Name: {{ lastName }}</li>
+        <br>
+        <hr>
+        <li><a routerLink="/PassReset">Change Password</a></li>
+        <hr>
+        <li><a routerLink="/logout">Logout</a></li>
+        <hr>
+    </ul>
+</div>

@@ -1,0 +1,22 @@
+<form (ngSubmit)="onLogin()">
+  <div class="container">
+    <h1>Login Form</h1>
+    <p>Welcome Back! Please Login with Your Credentials</p>
+
+    <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Email" autocomplete="email">
+    <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Password" autocomplete="current-password">
+     
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+    <div class="forgetpass">
+      <a routerLink="/PassReset">Forget Password</a>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+    
+    <div class="signup"> 
+      Don't Have an Account? <a routerLink="/Registration">Signup</a>
+    </div>
+  </div>
+</form>

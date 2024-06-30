@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Expense</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    * {
+      overflow: hidden;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #7abdfb 0%, #68c5ff 25%, #48b3ff 50%, #28b3fe 75%, #00b7ff 100%);
+    }
+    .form-container {
+      background: linear-gradient(to bottom right, #38B2AC, #c3b0b0);
+      padding: 2.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+      max-width: 500px;
+    }
+
+    .custom-label {
+      font-size: 1.25rem;
+      color: #000000;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .custom-input,
+      select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #000000; /* Changed border color to black */
+      border-radius: 0.25rem;
+      transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+    }
+
+
+    .custom-button {
+      width: 100%;
+      height: 50px;
+      background-color: #38B2AC;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .custom-button:hover {
+      background-color: #319795;
+    }
+
+    .custom-button:active {
+      box-shadow: inset 0 0 10px rgb(0, 255, 123);
+    }
+    h2 {
+      text-align: center;
+      
+    }
+
+  </style>
+</head>
+<body class="p-5 flex justify-center items-center h-screen">
+  <div class="container max-w-2xl mx-auto px-4 py-4">
+    <div class="form-container">
+    <h2 class="mb-4 text-2xl text-white font-bold">Add Expense</h2>
+      <form (ngSubmit)="saveData()" #myForm="ngForm" class="bg-gray-100 p-8 rounded-lg">
+        <div class="mb-4">
+          <label for="description" class="custom-label">Description:</label>
+          <input type="text" id="description" name="description" required minlength="3" class="custom-input" [(ngModel)]="formData.description" #descriptionInput="ngModel">
+          <span class="text-red-500 text-sm" *ngIf="(descriptionInput.touched || myForm.submitted) && descriptionInput.invalid">
+            Description must be at least 3 characters long.
+          </span>
+        </div>
+        <div class="mb-4">
+          <label for="category" class="custom-label">Category:</label>
+          <select id="category" name="category" required class="w-full px-3 py-2 border rounded-md" [(ngModel)]="formData.category" #categoryInput="ngModel">
+            <ng-container>
+              <option [ngValue]="null" disabled>Select Category</option>
+            </ng-container>
+            <option *ngFor="let category of categories" [ngValue]="category">{{ category.categoryName }}</option>
+          </select>
+          <span class="text-red-500 text-sm" *ngIf="(categoryInput.touched || myForm.submitted) && categoryInput.invalid">
+            Please select a category.
+          </span>
+        </div>
+        <div class="mb-4">
+          <label for="date" class="custom-label">Date:</label>
+          <input type="date" id="date" name="date" required class="custom-input" [(ngModel)]="formData.date" #dateInput="ngModel">
+          <span class="text-red-500 text-sm" *ngIf="(dateInput.touched || myForm.submitted) && dateInput.invalid">
+            Please select a date.
+          </span>
+        </div>
+        <div class="mb-4">
+          <label for="amount" class="custom-label">Amount:</label>
+          <input type="number" id="amount" name="amount" step="0.01" min="0.01" required class="custom-input" [(ngModel)]="formData.amount" #amountInput="ngModel">
+          <span class="text-red-500 text-sm" *ngIf="(amountInput.touched || myForm.submitted) && amountInput.invalid">
+            Please enter a valid amount greater than 0.
+          </span>
+        </div>
+        <button type="submit" id="saveBtn" class="custom-button">Save</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

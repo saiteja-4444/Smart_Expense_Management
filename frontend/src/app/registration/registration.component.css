@@ -1,0 +1,325 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.desktop {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.desktop .overlap-group-wrapper {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+
+.desktop .overlap-group {
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  height: 690px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #F8F9FA;
+  border-radius: 10px;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.4);
+  /* padding: 25px; */
+}
+
+@media screen and (max-width: 768px) {
+  .desktop .overlap-group {
+    width: 90%;
+    height: auto;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* padding:10px; */
+  }
+}
+@media screen and (max-width: 480px) {
+  .desktop .overlap-group {
+    width: 90%;
+    height: auto;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* padding: 5px; */
+  }
+}
+
+.desktop .text-wrapper {
+  position: absolute;
+  width: 427px;
+  height: 117px;
+  top: 20px;
+  left:5%;
+  color: #000;
+  font-weight:lighter;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .div {
+  position: relative;
+  width: 152px;
+  height: 29px;
+  top: 90px;
+  text-align: left;
+  padding-left: 70px;
+  color: #383333;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .text-wrapper-2 {
+  position: absolute;
+  width: 152px;
+  height: 29px;
+  top: 190px;
+  padding-left: 70px;
+  color: #383333;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .text-wrapper-3 {
+  position: absolute;
+  width: 152px;
+  height: 29px;
+  top: 290px;
+  padding-left: 70px;
+  color: #383333;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .text-wrapper-4 {
+  position: absolute;
+  width: 152px;
+  height: 29px;
+  top: 390px;
+  left: 70px;
+  color: #383333;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .text-wrapper-5 {
+  position: absolute;
+  width: 152px;
+  height: 29px;
+  top: 490px;
+  left: 70px;
+  color: #383333;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .overlap {
+  position: absolute;
+  width: 353px;
+  height: 62px;
+  top: 656px;
+  left: 163px;
+  border-radius: 30px;
+  border: 1px solid;
+  border-color: #000000;
+  background: linear-gradient(
+    180deg,
+    rgb(63.51, 79.63, 164.25) 0%,
+    rgb(115, 115, 115) 100%
+  );
+}
+
+.desktop .text-wrapper-6 {
+  position: absolute;
+  width: 75%;
+  height: 7%;
+  top: 590px;
+  left: 60px;
+  color: #000;
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  border-radius: 16px;
+  transition: background-color 0.3s ease;
+  background-color: #48CAE4;
+}
+
+.desktop .text-wrapper-6:hover {
+  background-color: green;
+  color: #fff;
+}
+
+.desktop .text-wrapper-7 {
+  position: absolute;
+  width: auto;
+  height: 42px;
+  top: 650px;
+  left: 20%;
+  color: #000000;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 5px;
+}
+
+.desktop .text-wrapper-8 {
+  position: absolute;
+  width: auto;
+  top: 650px;
+  left: 58%;
+  color: #00a3ff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  border: none;
+  text-decoration: underline;
+  transition: background-color 0.3s ease;
+}
+
+/* .desktop .text-wrapper-7 {
+    position: absolute;
+    top: 570px;
+    width: auto; 
+    margin-left:1%;
+  } */
+
+input {
+  position: absolute;
+  width: 350px;
+  height: 30px;
+  background-color: #e4e4e4;
+  transition: border-color 0.3s ease;
+}
+input {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+}
+
+input:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+input:focus::placeholder {
+  border-color: rgb(173, 175, 230);
+  visibility: hidden;
+}
+
+
+input::placeholder {
+  padding-left:15px;
+}
+
+#first-name {
+  position: absolute;
+  top: 110px;
+  left: 60px;
+  height: 45px;
+  width: 75%;
+  border-radius:16px;
+}
+#last-name {
+  position: absolute;
+  top: 210px;
+  left: 60px;
+  height: 45px;
+  width: 75%;
+  border-radius: 16px;
+}
+#email {
+  position: absolute;
+  top: 310px;
+  left: 60px;
+  height: 45px;
+  width: 75%;
+  border-radius: 16px;
+}
+#password {
+  position: absolute;
+  top: 410px;
+  left: 60px;
+  height: 45px;
+  width: 75%;
+  border-radius: 16px;
+}
+#confirmPassword {
+  position: absolute;
+  top: 510px;
+  left: 60px;
+  height:45px;
+  width: 75%;
+  border-radius: 16px;
+}
+
+.div, /* Add selector for all parent elements of input fields */
+.text-wrapper-2,
+.text-wrapper-3,
+.text-wrapper-4,
+.text-wrapper-5 {
+  position: relative; /* Relative positioning context for error messages */
+}
+
+.desktop .error-message {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.desktop .error-message.first-name {
+  position: absolute;
+  left: 70px;
+  top: 165px;
+}
+
+.desktop .error-message.last-name {
+  position: absolute;
+  left: 70px;
+  top: 265px;
+}
+
+.desktop .error-message.email {
+  position: absolute;
+  left: 70px;
+  top: 365px;
+}
+
+.desktop .error-message.password {
+  position: absolute;
+  left: 70px;
+  top: 465px;
+}
+
+.desktop .error-message.confirm-password {
+  position: absolute;
+  left: 70px;
+  top: 565px;
+}
+
+.invalid {
+  border: 1px solid red !important;
+}

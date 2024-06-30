@@ -1,0 +1,88 @@
+<body>
+    <div class="div-2">
+      <h1><div class="div-3">Reset Password</div></h1>
+      <br />
+      <form (ngSubmit)="resetPassword()" #resetForm="ngForm" novalidate>
+        <div class="form-group">
+          <label class="div-5" for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="user.email"
+            required
+            email
+            #emailInput="ngModel"
+          />
+  
+          <div
+            *ngIf="
+              emailInput?.invalid && (emailInput?.dirty || emailInput?.touched)
+            "
+            class="text-danger"
+          >
+            <div class="div-4" *ngIf="emailInput?.errors?.['required']">
+              Email is required.
+            </div>
+            <div class="div-4" *ngIf="emailInput?.errors?.['email']">
+              Invalid email format.
+            </div>
+          </div>
+        </div>
+        <div class="form-group password-container">
+          <label class="div-5" for="newPassword">New Password</label>
+          <input
+            type="password"
+            id="newPassword"
+            name="newPassword"
+            [(ngModel)]="user.password"
+            required
+            minlength="6"
+            #newPasswordInput="ngModel"
+          />
+  
+          <div
+            *ngIf="
+              newPasswordInput?.invalid &&
+              (newPasswordInput?.dirty || newPasswordInput?.touched)
+            "
+            class="text-danger"
+          >
+            <div class="div-4" *ngIf="newPasswordInput?.errors?.['required']">
+              Password is required.
+            </div>
+            <div class="div-4" *ngIf="newPasswordInput?.errors?.['minlength']">
+              Password must be at least 6 characters.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="div-5" for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            [(ngModel)]="confirmPassword"
+            required
+            #confirmPasswordInput="ngModel"
+          />
+  
+          <div
+            *ngIf="
+              confirmPasswordInput?.invalid &&
+              (confirmPasswordInput?.dirty || confirmPasswordInput?.touched)
+            "
+            class="text-danger"
+          >
+            <div class="div-4" *ngIf="confirmPasswordInput?.errors?.['required']">
+              Confirm Password is required.
+            </div>
+            </div>
+            <div class="div-4" *ngIf="confirmPassword !== this.user.password">
+              Passwords do not match.
+            </div>
+        </div>
+        <button class="submit-btn">Update</button> </form>
+    </div>
+  </body>
+  

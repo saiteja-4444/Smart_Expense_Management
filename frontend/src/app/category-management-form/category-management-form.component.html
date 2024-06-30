@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Category Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+
+  </head>
+<body>
+  <div id="background-container"></div>
+    <div class="container">
+      <h2 class="font-sans font-bold text-white text-4xl">Category Management</h2>
+      <div class="category-form">
+        <input  type="text"  [(ngModel)]="newCategoryName" placeholder="Enter category name">
+        <button class="btn-add" (click)="addCategory()">Add Category</button>
+      </div>
+      <div class="category-list">
+        <table>
+          <thead>
+            <tr>
+              <th>SerialNo.</th>
+              <th>Category Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of categories; let i = index">
+              <!-- <td>{{ category.categoryId}}</td> -->
+              <td id="sno">{{ i + 1 }}</td>
+
+
+              <td>
+                <span id="cname" *ngIf="!category.editing">{{ category.categoryName }}</span>
+                <input id="newname" *ngIf="category.editing" type="text" [(ngModel)]="category.newName" placeholder="Enter new name">
+              </td>
+              <td>
+                <button id="edit" class="btn-update transition bg-blue-500 text-white py-3 px-6 rounded"data-label="Edit" (click)="toggleEdit(category)">Update</button>
+                <button id="edit" class="btn-delete transition bg-red-500 text-white py-3 px-6 rounded"data-label="Edit" (click)="confirmDelete(category.categoryId)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</body>
+</html>
